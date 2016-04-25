@@ -102,19 +102,15 @@ au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
 au BufRead,BufNewFile *.{go}   set filetype=go
 au BufRead,BufNewFile *.{js}   set filetype=javascript
 "rkdown to HTML  
-nmap md :!~/.vim/markdown.pl % > %.html <CR><CR>
-nmap fi :!firefox %.html & <CR><CR>
-nmap \ \cc
-vmap \ \cc
+"nmap md :!~/.vim/markdown.pl % > %.html <CR><CR>
+"nmap fi :!firefox %.html & <CR><CR>
+"nmap \ \cc
+"vmap \ \cc
 
 "将tab替换为空格
 nmap tt :%s/\t/    /g<CR>
 
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""新文件标题
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "新建.c,.h,.sh,.java文件，自动插入文件头 
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.rb,*.java,*.py exec ":call SetTitle()" 
 ""定义函数SetTitle，自动插入文件头 
@@ -254,9 +250,9 @@ autocmd FileType c,cpp map <buffer> <leader><space> :w<cr>:make<cr>
 "代码补全 
 set completeopt=preview,menu 
 "允许插件  
-"filetype plugin on
+filetype plugin on
 "共享剪贴板  
-"set clipboard+=unnamed 
+set clipboard+=unnamed 
 "自动保存
 set autowrite
 "set ruler                   " 打开状态栏标尺
@@ -292,10 +288,6 @@ set selectmode=mouse,key
 set report=0
 " 在被分割的窗口间显示空白，便于阅读
 set fillchars=vert:\ ,stl:\ ,stlnc:\
-" 高亮显示匹配的括号
-set showmatch
-" 匹配括号高亮的时间（单位是十分之一秒）
-set matchtime=1
 " 光标移动到buffer的顶部和底部时保持3行距离
 set scrolloff=3
 
@@ -340,14 +332,8 @@ nmap tl :Tlist<cr>
 "python补全
 let g:pydiction_location = '~/.vim/after/complete-dict'
 let g:pydiction_menu_height = 20
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
 
 
-set iskeyword+=.
 set termencoding=utf-8
 set encoding=utf8
 set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
@@ -418,3 +404,12 @@ let g:ctrlp_custom_ignore = '\v\.(exe|so|dll)$'
 let g:ctrlp_extensions = ['funky']
 
 let NERDTreeIgnore=['\.pyc']
+
+"xnoremap * :<C-u>call <SID>VSetSearch() <CR>/<C-R>=@/<CR><CR>
+"xnoremap # :<C-u>call <SID>VSetSearch() <CR>?<C-R>=@/<CR><CR>
+"func! s:VSetSearch()
+"    let temp = @s
+"    norm! gv"sy
+"    let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
+"    let @s = temp
+"endfunc
