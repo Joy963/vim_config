@@ -13,6 +13,20 @@ set scrolloff=3     " 光标移动到buffer的顶部和底部时保持3行距离
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容  
 set laststatus=2    " 启动显示状态行(1),总是显示状态行(2)  
 
+"禁止生成临时文件
+set nobackup
+set noswapfile
+
+" 在处理未保存或只读文件的时候，弹出确认
+set confirm
+
+"搜索忽略大小写
+set ignorecase
+"set linespace=0
+" 增强模式中的命令行自动完成操作
+set wildmenu
+
+set autoread
 " 自动缩进
 set autoindent
 set cindent
@@ -24,11 +38,14 @@ set shiftwidth=4
 " 使用空格代替制表符
 set expandtab
 " 在行和段开始处使用制表符
-set smarttab
+"set smarttab
 
 set selection=inclusive
 set wildmenu
 set mousemodel=popup
+
+"代码补全 
+set completeopt=preview,menu 
 
 " 显示行号
 set number
@@ -50,8 +67,15 @@ filetype plugin indent on
 " 带有如下符号的单词不要被换行分割
 set iskeyword+=_,$,@,%,#,-
 
-"将tab替换为空格
-nmap tt :%s/\t/    /g<CR>
+" 通过使用: commands命令，告诉我们文件的哪一行被改变过
+set report=0
+" 在被分割的窗口间显示空白，便于阅读
+set fillchars=vert:\ ,stl:\ ,stlnc:\
+" 光标移动到buffer的顶部和底部时保持3行距离
+set scrolloff=3
+
+"Processing... % (ctrl+c to stop)
+let g:fencview_autodetect=0
 
 "键盘命令
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -73,6 +97,8 @@ imap <F3> <ESC> :NERDTreeToggle<CR>
 "打开树状文件目录  
 map <C-F3> \be  
 :autocmd BufRead,BufNewFile *.dot map <F5> :w<CR>:!dot -Tjpg -o %<.jpg % && eog %<.jpg  <CR><CR> && exec "redr!"
+autocmd vimenter * if !argc() | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeIgnore=['\.pyc']
 
 
@@ -115,6 +141,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "active_filetypes": ["python", "c"],
+    \ "passive_filetypes": ["html", "js"] }
 
 
 set rtp+=~/.vim/bundle/vundle/
