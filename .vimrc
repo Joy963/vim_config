@@ -10,6 +10,10 @@ set selection=inclusive
 set wildmenu
 set mousemodel=popup
 
+syntax on
+set background=dark
+colorscheme solarized
+
 au FileType php setlocal dict+=~/.vim/dict/php_funclist.dict
 au FileType css setlocal dict+=~/.vim/dict/css.dict
 au FileType c setlocal dict+=~/.vim/dict/c.dict
@@ -25,7 +29,7 @@ let g:mapleader = ','
 
 "
 "syntastic相关
-execute pathogen#infect()
+"execute pathogen#infect()
 let g:syntastic_python_checkers=['pylint']
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 "golang
@@ -100,7 +104,7 @@ set iskeyword+=_,$,@,%,#,-
 "markdown配置
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
 au BufRead,BufNewFile *.{go}   set filetype=go
-au BufRead,BufNewFile *.{js}   set filetype=javascript
+"au BufRead,BufNewFile *.{js}   set filetype=javascript
 "rkdown to HTML  
 "nmap md :!~/.vim/markdown.pl % > %.html <CR><CR>
 "nmap fi :!firefox %.html & <CR><CR>
@@ -371,15 +375,15 @@ Bundle 'last_edit_marker.vim'
 Bundle 'synmark.vim'
 "Bundle 'Python-mode-klen'
 Bundle 'SQLComplete.vim'
-Bundle 'Javascript-OmniCompletion-with-YUI-and-j'
+"Bundle 'Javascript-OmniCompletion-with-YUI-and-j'
 "Bundle 'JavaScript-Indent'
 "Bundle 'Better-Javascript-Indentation'
-Bundle 'jslint.vim'
-Bundle "pangloss/vim-javascript"
+"Bundle 'jslint.vim'
+"Bundle "pangloss/vim-javascript"
 Bundle 'Vim-Script-Updater'
 Bundle 'ctrlp.vim'
 Bundle 'tacahiroy/ctrlp-funky'
-Bundle 'jsbeautify'
+"Bundle 'jsbeautify'
 Bundle 'The-NERD-Commenter'
 "django
 Bundle 'django_templates.vim'
@@ -405,11 +409,3 @@ let g:ctrlp_extensions = ['funky']
 
 let NERDTreeIgnore=['\.pyc']
 
-"xnoremap * :<C-u>call <SID>VSetSearch() <CR>/<C-R>=@/<CR><CR>
-"xnoremap # :<C-u>call <SID>VSetSearch() <CR>?<C-R>=@/<CR><CR>
-"func! s:VSetSearch()
-"    let temp = @s
-"    norm! gv"sy
-"    let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
-"    let @s = temp
-"endfunc
