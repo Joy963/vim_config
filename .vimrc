@@ -30,6 +30,8 @@ set autoread
 " 自动缩进
 set autoindent
 set cindent
+set nocompatible
+set backspace=indent,eol,start
 " Tab键的宽度
 set tabstop=4
 " 统一缩进为4
