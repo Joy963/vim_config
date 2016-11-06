@@ -32,6 +32,11 @@ set autoindent
 set cindent
 set nocompatible
 set backspace=indent,eol,start
+
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
 " Tab键的宽度
 set tabstop=4
 " 统一缩进为4
@@ -109,7 +114,7 @@ let NERDTreeIgnore=['\.pyc']
 set tags=tags;
 set autochdir
 let Tlist_Auto_Open=0
-let Tlist_Ctags_Cmd = '/usr/bin/ctags'
+let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 let Tlist_Show_One_File = 1 "不同时显示多个文件的tag，只显示当前文件的
 let Tlist_File_Fold_Auto_Close = 1
 let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim
@@ -139,13 +144,13 @@ let g:ctrlp_extensions = ['funky']
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = {
     \ "mode": "active",
-    \ "active_filetypes": ["python", "c"],
+    \ "active_filetypes": ["python"],
     \ "passive_filetypes": ["html", "js"] }
 
 
