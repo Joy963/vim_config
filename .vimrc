@@ -6,7 +6,7 @@ let mapleader = ','
 syntax on
 set cul "高亮光标所在行
 "set cuc
-colorscheme inkpot1    " 设置背景主题
+colorscheme inkpot1  " 设置背景主题
 set ruler           " 显示标尺
 set showcmd         " 输入的命令显示出来，看的清楚些
 set scrolloff=3     " 光标移动到buffer的顶部和底部时保持3行距离
@@ -25,12 +25,12 @@ set ignorecase
 "set linespace=0
 " 增强模式中的命令行自动完成操作
 set wildmenu
-
 set autoread
 " 自动缩进
 set autoindent
 set cindent
 set nocompatible
+set whichwrap+=h,l
 set backspace=indent,eol,start
 
 nnoremap <F2> :set invpaste paste?<CR>
@@ -150,7 +150,7 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = {
     \ "mode": "active",
-    \ "active_filetypes": ["python"],
+    \ "active_filetypes": ["python", "c", "cpp"],
     \ "passive_filetypes": ["html", "js"] }
 
 
@@ -164,7 +164,8 @@ Bundle 'syntastic'
 "Bundle 'tpope/vim-fugitive'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'Yggdroot/indentLine'
-let g:indentLine_char = '┊'
+"let g:indentLine_char = '┊'
+let g:indentLine_char = '¦'
 "Bundle 'tpope/vim-rails.git'
 " vim-scripts repos
 Bundle 'L9'
