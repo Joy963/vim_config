@@ -26,9 +26,11 @@ set ignorecase
 " 增强模式中的命令行自动完成操作
 set wildmenu
 set autoread
+
 " 自动缩进
 set autoindent
 set cindent
+
 set nocompatible
 set whichwrap+=h,l
 set backspace=indent,eol,start
@@ -41,6 +43,11 @@ set shiftwidth=4
 set expandtab
 " 在行和段开始处使用制表符
 "set smarttab
+"
+"处理粘贴时的自动缩进
+nnoremap <F2> :set invpaste paste?<CR>
+imap <F2> <C-O>:set invpaste paste?<CR>
+set pastetoggle=<F2>
 
 set selection=inclusive
 set wildmenu
@@ -159,8 +166,8 @@ Bundle 'syntastic'
 "Bundle 'tpope/vim-fugitive'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'Yggdroot/indentLine'
-"let g:indentLine_char = '┊'
-let g:indentLine_char = '¦'
+"let g:indentLine_char = '¦'
+"let g:indentLine_char = ''
 "Bundle 'tpope/vim-rails.git'
 " vim-scripts repos
 Bundle 'L9'
