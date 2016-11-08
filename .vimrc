@@ -169,7 +169,7 @@ Bundle 'syntastic'
 " original repos on github
 "Bundle 'tpope/vim-fugitive'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'Yggdroot/indentLine'
+"Bundle 'Yggdroot/indentLine'
 "let g:indentLine_char = '¦'
 "let g:indentLine_char = ''
 "Bundle 'tpope/vim-rails.git'
