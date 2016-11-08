@@ -34,6 +34,11 @@ set cindent
 set nocompatible
 set whichwrap+=h,l
 set backspace=indent,eol,start
+
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
 " Tab键的宽度
 set tabstop=4
 " 统一缩进为4
@@ -92,7 +97,6 @@ let g:fencview_autodetect=0
 map! <C-Z> <Esc>zzi
 map! <C-O> <C-Y>,
 map <C-A> ggVG$"+y
-map <F12> gg=G
 map <C-w> <C-w>w
 imap <C-k> <C-y>,
 imap <C-t> <C-q><TAB>
